@@ -101,10 +101,11 @@ namespace Code_Generator
             {
                 DataRow dr = dt.Rows[i];
                 if (dt.Rows.Count == i + 1)
-                    script.Append($"this.{dr["Column Name"]});\n");
+                    script.Append($"this.{dr["Column Name"]})\n");
                 else
                     script.Append($"this.{dr["Column Name"]}, ");
             }
+            script.Append(" };");
             return script.ToString();
         }
     }

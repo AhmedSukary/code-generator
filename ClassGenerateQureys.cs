@@ -30,16 +30,16 @@ namespace Code_Generator
                 if (bool.Parse(dr["Allow Nulls"].ToString()))
                 {
                     if (dt.Rows.Count == i + 1)
-                        qurey += "NOT NULL\n";
+                        qurey += "NULL\n";
                     else
-                        qurey += "NOT NULL,\n";
+                        qurey += "NULL,\n";
                 }
                 else
                 {
                     if (dt.Rows.Count == i + 1)
-                        qurey += "NULL\n";
+                        qurey += "NOT NULL\n";
                     else
-                        qurey += "NULL,\n";
+                        qurey += "NOT NULL,\n";
                 }
             }
             qurey += ");\n\n";

@@ -603,9 +603,9 @@
             this.label11.ForeColor = System.Drawing.SystemColors.Window;
             this.label11.Location = new System.Drawing.Point(14, 84);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(370, 20);
+            this.label11.Size = new System.Drawing.Size(355, 20);
             this.label11.TabIndex = 26;
-            this.label11.Text = "Choose project directory /OR create new project";
+            this.label11.Text = "Choose project directory or create new project";
             // 
             // textBoxDataBaseName
             // 

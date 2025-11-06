@@ -56,7 +56,7 @@ namespace Code_Generator
                     script.Append($"ref {ClassGlobal.GetTypeOf(dr["Data Type"].ToString())} {dr["Column Name"]}, ");
             }
             script.Append(")\n    {\n");
-            script.Append($"        string query = \"EXEC SP_Get{dt.TableName}ByID @{firstDR["Column Name"]} = {firstDR["Column Name"]}\";\n");
+            script.Append($"        string query = $\"EXEC SP_Get{dt.TableName}ByID @{firstDR["Column Name"]} = {"{"}{firstDR["Column Name"]}{"}"}\";\n");
             script.Append("        bool isFound = false;\n");
             script.Append("        SqlConnection connection = new SqlConnection(ClassSettingsData.ConnectionString);\n");
             script.Append("        SqlCommand command = new SqlCommand(query, connection);\n");
@@ -181,7 +181,7 @@ namespace Code_Generator
             DataRow firstDR = dt.Rows[0];
             script.Append($"\n    public static bool Delete{dt.TableName}ByID (int {firstDR["Column Name"]}");
             script.Append(")\n    {\n");
-            script.Append($"        string query = $\"EXEC SP_Delete{dt.TableName}ByID @{firstDR["Column Name"]} = {firstDR["Column Name"]}\";\n");
+            script.Append($"        string query = $\"EXEC SP_Delete{dt.TableName}ByID @{firstDR["Column Name"]} = {"{"}{firstDR["Column Name"]}{"}"}\";\n");
             script.Append("        int rowsAffected = 0;\n");
             script.Append("        SqlConnection connection = new SqlConnection(ClassSettingsData.ConnectionString);\n");
             script.Append("        SqlCommand command = new SqlCommand(query, connection);\n");
